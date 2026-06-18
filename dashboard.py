@@ -2,30 +2,37 @@ import sqlite3
 import pandas as pd
 import matplotlib.pyplot as plt
 
-connection = sqlite3.connect("data/weather.db")
+conn = sqlite3.connect("data/weather.db")
 
 df = pd.read_sql(
     "SELECT * FROM weather_data",
-    connection
+    conn
 )
 
-connection.close()
+conn.close()
 
 df["timestamp"] = pd.to_datetime(df["timestamp"])
 
-plt.figure(figsize=(10, 5))
+plt.figure(figsize=(12,6))
 
 plt.plot(
     df["timestamp"],
-    df["temperature"]
+    df["temperature"],
+    label="Temperature"
 )
 
-plt.title("Temperature Over Time")
-plt.xlabel("Timestamp")
-plt.ylabel("Temperature")
+plt.plot(
+    df["timestamp"],
+    df["humidity"],
+    label="Humidity"
+)
 
-plt.xticks(rotation=45)
+plt.legend()
 
-plt.tight_layout()
+plt.title("Weather Trends")
+
+plt.xlabel("Time")
+
+plt.ylabel("Value")
 
 plt.show()
