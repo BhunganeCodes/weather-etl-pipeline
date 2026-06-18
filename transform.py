@@ -1,6 +1,5 @@
 import pandas as pd
 from datetime import datetime
-from extract import fetch_weather
 
 def transform_weather(data):
 
@@ -14,6 +13,3 @@ def transform_weather(data):
     }
 
     return pd.DataFrame([transformed])
-
-data = fetch_weather()
-print(transform_weather(data))
