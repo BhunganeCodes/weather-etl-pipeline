@@ -37,3 +37,9 @@ Analytics Dashboard
 ```bash
 python main.py
 ```
+
+## For the dashboard, run
+
+```bash
+python dashboard.py
+```
