@@ -1,0 +1,9 @@
+services:
+  weather-etl:
+    build: .
+    container_name: weather-etl
+
+    volumes:
+      - ./data:/app/data
+
+    restart: unless-stopped
