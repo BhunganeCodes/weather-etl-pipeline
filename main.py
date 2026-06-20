@@ -1,6 +1,7 @@
 from extract import fetch_weather
 from transform import transform_weather
 from load import load_to_database
+from export_data import export_data
 
 def run_pipeline():
 
@@ -12,6 +13,9 @@ def run_pipeline():
 
     print("Loading data to database...")
     load_to_database(df)
+
+    print("Saving data to csv...")
+    export_data(df)
 
     print("Pipeline Completed!")
     
